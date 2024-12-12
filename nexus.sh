@@ -28,6 +28,8 @@ check_result() {
 # 开始安装
 log "开始安装..."
 
+sudo su
+
 # 安装 git 和 cargo
 log "正在安装 git 和 cargo..."
 yum install -y git
