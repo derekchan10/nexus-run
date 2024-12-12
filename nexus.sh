@@ -97,7 +97,7 @@ check_result "清理临时文件"
 
 # 验证安装
 log "验证 protoc 安装..."
-protoc --version
+/usr/local/bin/protoc --version
 check_result "验证 protoc"
 
 # 安装 nexus cli
