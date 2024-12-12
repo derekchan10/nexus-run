@@ -107,7 +107,7 @@ set timeout -1
 spawn sudo bash -c \"curl https://cli.nexus.xyz/ | sh\"
 expect \"agree\"
 send \"y\r\"
-expect \"Enter\"
+expect \"Enter your Prover Id (optional)>\"
 send \"${PROVER_ID}\r\"
 expect eof
 ' > nexus.log 2>&1"
