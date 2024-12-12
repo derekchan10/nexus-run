@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# 设置日志文件
+LOG_FILE="install.log"
+
+# 记录日志的函数
+log() {
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" | tee -a $LOG_FILE
+}
+
 # 检查并开启 sudo 模式
 if [ "$EUID" -ne 0 ]; then
     log "需要 root 权限运行此脚本"
@@ -12,14 +20,6 @@ if [ $# -eq 1 ]; then
     PROVER_ID=$1
     log "使用 Prover Id: $PROVER_ID"
 fi
-
-# 设置日志文件
-LOG_FILE="install.log"
-
-# 记录日志的函数
-log() {
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" | tee -a $LOG_FILE
-}
 
 # 检查命令执行结果
 check_result() {
