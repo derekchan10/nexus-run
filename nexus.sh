@@ -36,6 +36,11 @@ check_result "安装 git"
 sudo yum install -y cargo
 check_result "安装 cargo"
 
+# 升级 cargo
+log "正在升级 cargo..."
+sudo cargo install cargo --force
+check_result "升级 cargo"
+
 # 安装 expect
 log "正在安装 expect..."
 sudo yum install -y expect
