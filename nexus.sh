@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# 检查并开启 sudo 模式
+if [ "$EUID" -ne 0 ]; then
+    log "需要 root 权限运行此脚本"
+    exec sudo "$0" "$@"
+fi
+
 # 设置 Prover Id
 PROVER_ID=""
 if [ $# -eq 1 ]; then
@@ -27,8 +33,6 @@ check_result() {
 
 # 开始安装
 log "开始安装..."
-
-sudo su
 
 # 安装 git 和 cargo
 log "正在安装 git 和 cargo..."
