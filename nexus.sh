@@ -11,7 +11,7 @@ log() {
 # 检查并开启 sudo 模式
 if [ "$EUID" -ne 0 ]; then
     log "需要 root 权限运行此脚本"
-    exec sudo "$0" "$@"
+    exit 1
 fi
 
 # 设置 Prover Id
