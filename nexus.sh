@@ -110,7 +110,7 @@ expect {
         send \"y\r\"
         exp_continue
     }
-    \"Enter\" {
+    \">\" {
         send \"${PROVER_ID}\r\"
     }
 }
