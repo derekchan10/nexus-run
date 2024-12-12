@@ -105,10 +105,15 @@ check_result "安装 tmux"
 tmux new-session -d -s nexus "expect -c '
 set timeout -1
 spawn sudo bash -c \"curl https://cli.nexus.xyz/ | sh\"
-expect \"agree\"
-send \"y\r\"
-expect \"Enter your Prover Id (optional)>\"
-send \"${PROVER_ID}\r\"
+expect {
+    \"agree\" {
+        send \"y\r\"
+        exp_continue
+    }
+    \"Enter\" {
+        send \"${PROVER_ID}\r\"
+    }
+}
 expect eof
 ' > nexus.log 2>&1"
 
